@@ -58,6 +58,35 @@ class DemoModelo(models.Model):
             print(f"Nombre del registro: {registro.name}")
 ```
 
+## 4. Ejemplo en Odoo: Uso de Sintaxis Básica explicacion
+
+```python
+# Importar las clases necesarias de Odoo:
+# - models: Para crear nuevos modelos/tablas de base de datos
+# - fields: Para definir los campos/columnas del modelo
+from odoo import models, fields
+
+# Definición de un nuevo modelo (tabla en la base de datos)
+class DemoModelo(models.Model):
+    # Nombre técnico del modelo que usará Odoo (debe ser único en el sistema)
+    # Convención: 'nombre.modulo' en minúsculas y con puntos
+    _name = 'demo.modelo'
+    
+    # Campo de tipo Char (texto corto) llamado 'name'
+    # Por convención, Odoo usa 'name' como campo descriptor por defecto
+    # El parámetro "Nombre" es el label que se mostrará en las vistas
+    name = fields.Char("Nombre")
+    
+    # Método personalizado que imprime los nombres de los registros
+    # 'self' puede contener uno o múltiples registros (recordset)
+    def imprimir_nombres(self):
+        # Iterar sobre todos los registros en el recordset (self)
+        for registro in self:
+            # Imprimir en consola el nombre de cada registro
+            # f-string (formatted string) para interpolación de variables
+            print(f"Nombre del registro: {registro.name}")
+```
+
 ---
 
 ## Resumen
